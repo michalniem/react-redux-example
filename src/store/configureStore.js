@@ -9,7 +9,7 @@ import asyncReducerFactory from './api/reducer';
 
 const rootReducer = combineReducers({
   users: asyncReducerFactory('users'),
-  psots: asyncReducerFactory('posts'),
+  posts: asyncReducerFactory('posts'),
   photos: asyncReducerFactory('photos'),
 });
 

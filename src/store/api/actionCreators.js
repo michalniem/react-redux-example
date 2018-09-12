@@ -19,7 +19,7 @@ export const fetchErrored = (name, error) => ({
   payload: error
 });
 
-export const asyncActionCreatorFactory = name =>
+export const fetchDataFactory = name =>
   () =>
     async dispatch => {
       dispatch(fetchStarted(name))
@@ -29,4 +29,4 @@ export const asyncActionCreatorFactory = name =>
       } catch (err) {
         dispatch(fetchErrored(name, err))
       }
-    }
+    };
