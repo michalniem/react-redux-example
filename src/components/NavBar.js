@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
@@ -27,9 +28,24 @@ class NavBar extends Component {
         textColor="primary"
         onChange={this.handleChange}
       >
-        <Tab label="Photos" className={classes.tab} />
-        <Tab label="Users" className={classes.tab} />
-        <Tab label="Posts" className={classes.tab} />
+        <Tab
+          label="Photos"
+          className={classes.tab}
+          component={Link}
+          to='/photos'
+        />
+        <Tab
+          label="Users"
+          className={classes.tab}
+          component={Link}
+          to='/users'
+        />
+        <Tab
+          label="Posts"
+          className={classes.tab}
+          component={Link}
+          to='/posts'
+        />
       </Tabs>
     );
   }

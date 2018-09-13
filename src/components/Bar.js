@@ -12,7 +12,7 @@ const styles = {
   },
 };
 
-const AppBarComponent = ({ classes }) => (
+const Bar = ({ classes }) => (
   <AppBar position="static" color="default">
     <Toolbar className={classes.toolbar}>
       <Typography variant="title" color="inherit">
@@ -23,4 +23,4 @@ const AppBarComponent = ({ classes }) => (
   </AppBar>
 );
 
-export default withStyles(styles)(AppBarComponent);
+export default withStyles(styles)(Bar);
