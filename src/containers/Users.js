@@ -1,7 +1,7 @@
 import React from 'react';
 import { compose } from 'redux';
 
-import WithUsers from '../hocs/WithUsers';
+import WithData from '../hocs/WithData';
 
 const Users = (props) => (
   <div>
@@ -11,7 +11,7 @@ const Users = (props) => (
 );
 
 const enhances = compose(
-  WithUsers,
+  WithData('users'),
 );
 
 export default enhances(Users);

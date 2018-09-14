@@ -1,7 +1,7 @@
 import React from 'react';
 import { compose } from 'redux';
 
-import WithPosts from '../hocs/WithPosts';
+import WithData from '../hocs/WithData';
 
 const Posts = (props) => (
   <div>
@@ -11,7 +11,7 @@ const Posts = (props) => (
 );
 
 const enhances = compose(
-  WithPosts,
+  WithData('posts'),
 );
 
 export default enhances(Posts);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -10,12 +11,21 @@ const styles = {
   toolbar: {
     justifyContent: 'space-between',
   },
+  typographyLink: {
+    textDecoration: 'none',
+  }
 };
 
 const Bar = ({ classes }) => (
   <AppBar position="static" color="default">
     <Toolbar className={classes.toolbar}>
-      <Typography variant="title" color="inherit">
+      <Typography
+        className={classes.typographyLink}
+        variant="title"
+        color="inherit"
+        component={Link}
+        to="/"
+      >
         React-redux-example
       </Typography>
       <NavBar />

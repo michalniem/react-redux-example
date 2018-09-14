@@ -1,7 +1,7 @@
 import React from 'react';
 import { compose } from 'redux';
 
-import WithPhotos from '../hocs/WithPhotos';
+import WithData from '../hocs/WithData';
 
 const Photos = (props) => (
   <div>
@@ -11,7 +11,7 @@ const Photos = (props) => (
 );
 
 const enhances = compose(
-  WithPhotos,
+  WithData('photos'),
 );
 
 export default enhances(Photos);
