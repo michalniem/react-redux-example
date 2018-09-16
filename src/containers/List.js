@@ -1,7 +1,16 @@
 import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
+const styles = {
+  list: {
+    listStyleType: 'none',
+    padding: 0,
+  },
+}
+
 const List = ({
+  classes,
   data,
   renderItem,
   isLoading,
@@ -9,8 +18,10 @@ const List = ({
 }) => (
   <React.Fragment>
     {data &&
-      <ul>
-        {data.data.map(item => renderItem(item))}
+      <ul className={classes.list}>
+        {data.data.map(item => 
+          <li key={item.id}>{renderItem(item)}</li>
+        )}
       </ul>
     }
     {isLoading && <CircularProgress size={50} />}
@@ -18,4 +29,4 @@ const List = ({
   </React.Fragment>
 );
 
-export default List;
+export default withStyles(styles)(List);
