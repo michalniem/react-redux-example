@@ -29,6 +29,7 @@ const Photos = ({
         isLoading={isLoading}
         error={error}
         limit={20}
+        style="grid"
         renderItem={item => (
           <Photo
             title={item.title}

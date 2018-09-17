@@ -27,6 +27,7 @@ const Posts = ({
         data={data}
         isLoading={isLoading}
         error={error}
+        style="list"
         renderItem={item => (
           <Post
             title={item.title}
