@@ -19,7 +19,7 @@ const styles = {
 
 const Posts = ({
   classes,
-  posts: { data, isLoading, error }
+  posts: { data, isLoading, error },
 }) => (
   <div className={classes.conteiner}>
     <Typography variant="headline" component="h1">Posts</Typography>

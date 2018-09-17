@@ -15,11 +15,12 @@ const List = ({
   renderItem,
   isLoading,
   error,
+  limit,
 }) => (
   <React.Fragment>
     {data &&
       <ul className={classes.list}>
-        {data.data.map(item => 
+        {data.data.slice(0, limit).map(item =>
           <li key={item.id}>{renderItem(item)}</li>
         )}
       </ul>
