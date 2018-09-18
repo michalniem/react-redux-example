@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
 import Photo from '../components/Photo';
-import List from '../containers/List';
+import List from './List';
 import WithData from '../hocs/WithData';
 
 const styles = {
@@ -19,29 +19,29 @@ const styles = {
     listStyleType: 'none',
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr 1fr',
-    gridGap: "10px 10px",
+    gridGap: '10px 10px',
   },
 };
 
 const Photos = ({
   classes,
-  photos: { data, isLoading, error }
+  photos: { data, isLoading, error },
 }) => (
   <div className={classes.conteiner}>
     <Typography variant="headline" component="h1">Photos</Typography>
-      <List
-        data={data}
-        isLoading={isLoading}
-        error={error}
-        limit={20}
-        className={classes.grid}
-        renderItem={item => (
-          <Photo
-            title={item.title}
-            thumbnailUrl={item.thumbnailUrl}
-          />
-        )}
-      />
+    <List
+      data={data}
+      isLoading={isLoading}
+      error={error}
+      limit={20}
+      className={classes.grid}
+      renderItem={item => (
+        <Photo
+          title={item.title}
+          thumbnailUrl={item.thumbnailUrl}
+        />
+      )}
+    />
   </div>
 );
 

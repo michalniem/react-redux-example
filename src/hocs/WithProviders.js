@@ -4,13 +4,12 @@ import { BrowserRouter } from 'react-router-dom';
 
 import reduxStore from '../store/configureStore';
 
-const WithProviders = WrappedComponent =>
-  () => (
-    <ReduxProvider store={reduxStore}>
-      <BrowserRouter>
-        <WrappedComponent />
-      </BrowserRouter>
-    </ReduxProvider>
-  );
+const WithProviders = WrappedComponent => () => (
+  <ReduxProvider store={reduxStore}>
+    <BrowserRouter>
+      <WrappedComponent />
+    </BrowserRouter>
+  </ReduxProvider>
+);
 
-  export default WithProviders;
+export default WithProviders;

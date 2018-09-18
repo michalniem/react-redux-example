@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
 import Post from '../components/Post';
-import List from '../containers/List';
+import List from './List';
 import WithData from '../hocs/WithData';
 
 const styles = {
@@ -27,18 +27,18 @@ const Posts = ({
 }) => (
   <div className={classes.conteiner}>
     <Typography variant="headline" component="h1">Posts</Typography>
-      <List
-        data={data}
-        isLoading={isLoading}
-        error={error}
-        style={classes.list}
-        renderItem={item => (
-          <Post
-            title={item.title}
-            body={item.body}
-          />
-        )}
-      />
+    <List
+      data={data}
+      isLoading={isLoading}
+      error={error}
+      style={classes.list}
+      renderItem={item => (
+        <Post
+          title={item.title}
+          body={item.body}
+        />
+      )}
+    />
   </div>
 );
 

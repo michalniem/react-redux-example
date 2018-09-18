@@ -13,7 +13,7 @@ const styles = {
   },
   typographyLink: {
     textDecoration: 'none',
-  }
+  },
 };
 
 const Bar = ({ classes }) => (

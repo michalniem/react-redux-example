@@ -3,10 +3,9 @@ import { compose } from 'redux';
 
 import WithData from '../hocs/WithData';
 
-const Users = (props) => (
+const Users = () => (
   <div>
     <h1>Users</h1>
-    {console.log(props)}
   </div>
 );
 

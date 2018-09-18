@@ -4,21 +4,21 @@ import { connect } from 'react-redux';
 
 import { fetchDataFactory } from '../store/api/actionCreators';
 
-const WithData = WrappedComponent =>
-  class extends Component {
-    componentDidMount() {
-      this.props.fetchData();
-    }
-
-    render() {
-      return <WrappedComponent {...this.props}/>
-    }
+const WithData = WrappedComponent => class extends Component {
+  componentDidMount() {
+    const { fetchData } = this.props;
+    fetchData();
   }
+
+  render() {
+    return <WrappedComponent {...this.props} />;
+  }
+};
 
 const enhances = resource => compose(
   connect(
     state => ({ [resource]: state[resource] }),
-    dispatch => ({ fetchData: bindActionCreators(fetchDataFactory(resource), dispatch) })
+    dispatch => ({ fetchData: bindActionCreators(fetchDataFactory(resource), dispatch) }),
   ),
   WithData,
 );

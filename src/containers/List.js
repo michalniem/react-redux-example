@@ -7,15 +7,15 @@ const List = ({
   isLoading,
   error,
   limit,
-  className
+  className,
 }) => (
   <React.Fragment>
-    {data &&
+    {data
+      && (
       <ul className={className}>
-        {data.data.slice(0, limit).map(item =>
-          <li key={item.id}>{renderItem(item)}</li>
-        )}
+        {data.data.slice(0, limit).map(item => <li key={item.id}>{renderItem(item)}</li>)}
       </ul>
+      )
     }
     {isLoading && <CircularProgress size={50} />}
     {error && <p>Something is wrong...</p>}
