@@ -15,6 +15,12 @@ const styles = {
     alignItems: 'center',
     padding: 20,
   },
+  grid: {
+    listStyleType: 'none',
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr 1fr',
+    gridGap: "10px 10px",
+  },
 };
 
 const Photos = ({
@@ -23,13 +29,12 @@ const Photos = ({
 }) => (
   <div className={classes.conteiner}>
     <Typography variant="headline" component="h1">Photos</Typography>
-    {console.log(data)}
       <List
         data={data}
         isLoading={isLoading}
         error={error}
         limit={20}
-        style="grid"
+        className={classes.grid}
         renderItem={item => (
           <Photo
             title={item.title}

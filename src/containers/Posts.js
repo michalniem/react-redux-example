@@ -15,6 +15,10 @@ const styles = {
     alignItems: 'center',
     padding: 20,
   },
+  list: {
+    listStyleType: 'none',
+    padding: 0,
+  },
 };
 
 const Posts = ({
@@ -27,7 +31,7 @@ const Posts = ({
         data={data}
         isLoading={isLoading}
         error={error}
-        style="list"
+        style={classes.list}
         renderItem={item => (
           <Post
             title={item.title}
