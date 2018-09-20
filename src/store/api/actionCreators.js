@@ -1,4 +1,3 @@
-import instance from '../../axiosConfig';
 import {
   startedActionType,
   successActionType,
@@ -19,10 +18,10 @@ export const fetchErrored = (name, error) => ({
   payload: error,
 });
 
-export const fetchDataFactory = name => () => async (dispatch) => {
+export const fetchDataFactory = (name, instance) => () => async (dispatch) => {
   dispatch(fetchStarted(name));
   try {
-    const res = await instance.get(name);
+    const res = await instance;
     dispatch(fetchSucceeded(name, res));
   } catch (err) {
     dispatch(fetchErrored(name, err));

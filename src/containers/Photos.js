@@ -2,6 +2,8 @@ import React from 'react';
 import { compose } from 'redux';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import { jsonPlaceholder } from '../axiosConfig';
+
 
 import Photo from '../components/Photo';
 import List from './List';
@@ -25,7 +27,7 @@ const styles = {
 
 const Photos = ({
   classes,
-  photos: { data, isLoading, error },
+  data: { data, isLoading, error },
 }) => (
   <div className={classes.conteiner}>
     <Typography variant="headline" component="h1">Photos</Typography>
@@ -46,7 +48,7 @@ const Photos = ({
 );
 
 const enhances = compose(
-  WithData('photos'),
+  WithData('photos', jsonPlaceholder('photos')),
   withStyles(styles),
 );
 

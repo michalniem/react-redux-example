@@ -12,7 +12,7 @@ const styles = {
 
 class NavBar extends Component {
   state = {
-    value: 2,
+    value: null,
   };
 
   handleChange = (event, value) => {
@@ -32,19 +32,19 @@ class NavBar extends Component {
           label="Photos"
           className={classes.tab}
           component={Link}
-          to='/photos'
+          to="/photos"
         />
         <Tab
           label="Users"
           className={classes.tab}
           component={Link}
-          to='/users'
+          to="/users"
         />
         <Tab
           label="Posts"
           className={classes.tab}
           component={Link}
-          to='/posts'
+          to="/posts"
         />
       </Tabs>
     );

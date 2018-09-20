@@ -15,12 +15,12 @@ const WithData = WrappedComponent => class extends Component {
   }
 };
 
-const enhances = resource => compose(
+const enhances = (resource, instance) => compose(
   connect(
-    state => ({ [resource]: state[resource] }),
-    dispatch => ({ fetchData: bindActionCreators(fetchDataFactory(resource), dispatch) }),
+    state => ({ data: state[resource] }),
+    dispatch => ({ fetchData: bindActionCreators(fetchDataFactory(resource, instance), dispatch) }),
   ),
   WithData,
 );
 
-export default resource => WrappedComponent => enhances(resource)(WrappedComponent);
+export default (resource, instance) => WrappedComponent => enhances(resource, instance)(WrappedComponent);

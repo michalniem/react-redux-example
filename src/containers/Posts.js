@@ -2,6 +2,7 @@ import React from 'react';
 import { compose } from 'redux';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import { jsonPlaceholder } from '../axiosConfig';
 
 import Post from '../components/Post';
 import List from './List';
@@ -23,7 +24,7 @@ const styles = {
 
 const Posts = ({
   classes,
-  posts: { data, isLoading, error },
+  data: { data, isLoading, error },
 }) => (
   <div className={classes.conteiner}>
     <Typography variant="headline" component="h1">Posts</Typography>
@@ -31,7 +32,7 @@ const Posts = ({
       data={data}
       isLoading={isLoading}
       error={error}
-      style={classes.list}
+      className={classes.list}
       renderItem={item => (
         <Post
           title={item.title}
@@ -43,7 +44,7 @@ const Posts = ({
 );
 
 const enhances = compose(
-  WithData('posts'),
+  WithData('users', jsonPlaceholder.get('posts')),
   withStyles(styles),
 );
 
