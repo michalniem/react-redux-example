@@ -1,0 +1,25 @@
+export default {
+  size: {
+    small: '12px',
+    regular: '16px',
+    large: '24px',
+    xlarge: '32px',
+    xxlarge: '48px',
+    xxxlarge: '64px',
+  },
+  colors: {
+    orange: '#f05537',
+    bouquet: '#b37399',
+    venus: '#998099',
+    patina: '#699',
+    nebula: '#d2e1dd',
+    white: '#fff',
+    dawnPink: '#f2ece4',
+    wafer: '#e1d7d2',
+    iron: '#dadbdf',
+    lightGrey: '#eeedf2',
+    regentGrey: '#808c99',
+    paleSky: '#6b717f',
+    midnightBlue: '#036',
+  },
+};

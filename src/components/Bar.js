@@ -1,36 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import styled, { withTheme } from 'styled-components';
 
 import NavBar from './NavBar';
 
-const styles = {
-  toolbar: {
-    justifyContent: 'space-between',
-  },
-  typographyLink: {
-    textDecoration: 'none',
-  },
-};
+const Bar = styled.div`
+  width: 100%;
+  height: 60px;
+  background: ${({ theme }) => theme.colors.white};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.lightGrey};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 ${({ theme }) => theme.size.large};
+`;
 
-const Bar = ({ classes }) => (
-  <AppBar position="static" color="default">
-    <Toolbar className={classes.toolbar}>
-      <Typography
-        className={classes.typographyLink}
-        variant="title"
-        color="inherit"
-        component={Link}
-        to="/"
-      >
-        React-redux-example
-      </Typography>
-      <NavBar />
-    </Toolbar>
-  </AppBar>
+const Typography = styled(Link)`
+  font-size: ${({ theme }) => theme.size.large};
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.orange};
+`;
+
+const AppBar = () => (
+  <Bar>
+    <Typography
+      component={Link}
+      to="/"
+    >
+      React-redux-example
+    </Typography>
+    <NavBar />
+  </Bar>
 );
 
-export default withStyles(styles)(Bar);
+export default withTheme(AppBar);
