@@ -1,54 +1,28 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+import styled, { withTheme } from 'styled-components';
 
-const styles = {
-  tab: {
-    minHeight: '64px',
-  },
-};
+const Tabs = styled.div`
+  display: flex;
+  height: 100%;
+`;
 
-class NavBar extends Component {
-  state = {
-    value: null,
-  };
+const Tab = styled(Link)`
+  width: 100px;
+  color: ${({ theme }) => theme.colors.regentGrey};
+  font-size: ${({ theme }) => theme.size.regular};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+`;
 
-  handleChange = (event, value) => {
-    this.setState({ value });
-  };
+const NavBar = () => (
+  <Tabs>
+    <Tab to="/photos">Photos</Tab>
+    <Tab to="/users">Users</Tab>
+    <Tab to="/posts">Posts</Tab>
+  </Tabs>
+);
 
-  render() {
-    const { classes } = this.props;
-    return (
-      <Tabs
-        value={this.state.value}
-        indicatorColor="primary"
-        textColor="primary"
-        onChange={this.handleChange}
-      >
-        <Tab
-          label="Photos"
-          className={classes.tab}
-          component={Link}
-          to="/photos"
-        />
-        <Tab
-          label="Users"
-          className={classes.tab}
-          component={Link}
-          to="/users"
-        />
-        <Tab
-          label="Posts"
-          className={classes.tab}
-          component={Link}
-          to="/posts"
-        />
-      </Tabs>
-    );
-  }
-}
-
-export default withStyles(styles)(NavBar);
+export default withTheme(NavBar);
