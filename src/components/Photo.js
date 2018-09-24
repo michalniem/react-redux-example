@@ -1,39 +1,52 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
+import styled, { withTheme } from 'styled-components';
 
-const styles = {
-  card: {
-    width: '100%',
-    height: '100%',
-  },
-  media: {
-    height: 140,
-  },
-};
 
-const Photo = ({ classes, title, thumbnailUrl }) => (
-  <Card className={classes.card}>
-    <CardActionArea>
-      <CardMedia
-        className={classes.media}
-        image={thumbnailUrl}
-        title={title}
-      />
-      <CardContent>
-        <Typography gutterBottom variant="headline" component="h2">
-          Headline
-        </Typography>
-        <Typography component="p">
-          {title}
-        </Typography>
-      </CardContent>
-    </CardActionArea>
+const Card = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-weight: 200;
+  color: ${({ theme }) => theme.colors.regentGrey};
+  border-radius: 4px;
+  transition: .24s cubic-bezier(.4,0,.3,1);
+  &:hover {
+    box-shadow: 0 4px 15px 0 rgba(40,44,53,.06), 0 2px 2px 0 rgba(40,44,53,.08);
+  }
+`;
+
+const CardMedia = styled.div`
+  width: 100%;
+  height: 200px;
+  background-image: url(${({ thumbnailUrl }) => thumbnailUrl});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 4px;
+`;
+
+const CardHeader = styled.h2`
+  font-size: ${({ theme }) => theme.size.large};
+  text-transform: uppercase;
+  font-weight: 400;
+  color: ${({ theme }) => theme.colors.regentGrey};
+  margin: 10px 0;
+  padding: 0 10px;
+`;
+
+const CardTitle = styled.h3`
+  font-size: ${({ theme }) => theme.size.regular};
+  font-weight: 200;
+  color: ${({ theme }) => theme.colors.regentGrey};
+  padding: 0 10px;
+`;
+
+const Photo = ({ title, thumbnailUrl }) => (
+  <Card>
+    <CardMedia thumbnailUrl={thumbnailUrl} />
+    <CardHeader>Example header</CardHeader>
+    <CardTitle>{title}</CardTitle>
   </Card>
 );
 
-export default withStyles(styles)(Photo);
+export default withTheme(Photo);
