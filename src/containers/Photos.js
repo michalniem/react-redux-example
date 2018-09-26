@@ -1,7 +1,7 @@
 import React from 'react';
 import { compose } from 'redux';
 import styled, { withTheme } from 'styled-components';
-import { jsonPlaceholder } from '../axiosConfig';
+import instance from '../axiosConfig';
 
 import Photo from '../components/Photo';
 import List from './List';
@@ -43,7 +43,7 @@ const Photos = ({
 );
 
 const enhances = compose(
-  WithData('photos', jsonPlaceholder('photos')),
+  WithData('photos', instance('photos')),
   withTheme,
 );
 

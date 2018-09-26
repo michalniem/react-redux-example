@@ -1,7 +1,7 @@
 import React from 'react';
 import { compose } from 'redux';
 import styled, { withTheme } from 'styled-components';
-import { jsonPlaceholder } from '../axiosConfig';
+import instance from '../axiosConfig';
 
 import Post from '../components/Post';
 import List from './List';
@@ -39,7 +39,7 @@ const Posts = ({
 );
 
 const enhances = compose(
-  WithData('users', jsonPlaceholder.get('posts')),
+  WithData('users', instance.get('posts')),
   withTheme,
 );
 
