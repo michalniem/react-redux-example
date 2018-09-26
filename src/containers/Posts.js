@@ -1,38 +1,33 @@
 import React from 'react';
 import { compose } from 'redux';
-import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
+import styled, { withTheme } from 'styled-components';
 import { jsonPlaceholder } from '../axiosConfig';
 
 import Post from '../components/Post';
 import List from './List';
 import WithData from '../hocs/WithData';
 
-const styles = {
-  conteiner: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-  list: {
-    listStyleType: 'none',
-    padding: 0,
-  },
-};
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+`;
+
+const ColumnList = styled(List)`
+  list-style-type: none;
+  padding: 0;
+`;
 
 const Posts = ({
-  classes,
   data: { data, isLoading, error },
 }) => (
-  <div className={classes.conteiner}>
-    <Typography variant="headline" component="h1">Posts</Typography>
-    <List
+  <Container>
+    <ColumnList
       data={data}
       isLoading={isLoading}
       error={error}
-      className={classes.list}
       renderItem={item => (
         <Post
           title={item.title}
@@ -40,12 +35,12 @@ const Posts = ({
         />
       )}
     />
-  </div>
+  </Container>
 );
 
 const enhances = compose(
   WithData('users', jsonPlaceholder.get('posts')),
-  withStyles(styles),
+  withTheme,
 );
 
 export default enhances(Posts);

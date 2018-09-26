@@ -1,9 +1,9 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
 
-
 const Card = styled.div`
   width: 100%;
+  height: 350px;
   display: flex;
   flex-direction: column;
   font-weight: 200;
@@ -13,6 +13,7 @@ const Card = styled.div`
   &:hover {
     box-shadow: 0 4px 15px 0 rgba(40,44,53,.06), 0 2px 2px 0 rgba(40,44,53,.08);
   }
+
 `;
 
 const CardMedia = styled.div`

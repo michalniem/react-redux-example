@@ -1,42 +1,37 @@
 import React from 'react';
 import { compose } from 'redux';
-import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
+import styled, { withTheme } from 'styled-components';
 import { jsonPlaceholder } from '../axiosConfig';
-
 
 import Photo from '../components/Photo';
 import List from './List';
 import WithData from '../hocs/WithData';
 
-const styles = {
-  conteiner: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-  grid: {
-    listStyleType: 'none',
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr 1fr',
-    gridGap: '10px 10px',
-  },
-};
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+`;
+
+const GridList = styled(List)`
+  padding: 0;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px 10px;
+`;
 
 const Photos = ({
-  classes,
   data: { data, isLoading, error },
 }) => (
-  <div className={classes.conteiner}>
-    <Typography variant="headline" component="h1">Photos</Typography>
-    <List
+  <Container>
+    <GridList
       data={data}
       isLoading={isLoading}
       error={error}
       limit={20}
-      className={classes.grid}
       renderItem={item => (
         <Photo
           title={item.title}
@@ -44,12 +39,12 @@ const Photos = ({
         />
       )}
     />
-  </div>
+  </Container>
 );
 
 const enhances = compose(
   WithData('photos', jsonPlaceholder('photos')),
-  withStyles(styles),
+  withTheme,
 );
 
 export default enhances(Photos);
