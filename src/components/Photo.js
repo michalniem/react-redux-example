@@ -13,7 +13,6 @@ const Card = styled.div`
   &:hover {
     box-shadow: 0 4px 15px 0 rgba(40,44,53,.06), 0 2px 2px 0 rgba(40,44,53,.08);
   }
-
 `;
 
 const CardMedia = styled.div`

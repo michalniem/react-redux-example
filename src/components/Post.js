@@ -1,19 +1,11 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import styled, { withTheme } from 'styled-components';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
-const styles = theme => ({
-  root: {
-    ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
-    marginBottom: theme.spacing.unit * 2,
-  },
-});
 
-const Post = ({ classes, title, body }) => (
-  <Paper className={classes.root} elevation={1}>
+const Post = ({ title, body }) => (
+  <Paper elevation={1}>
     <Typography variant="headline" component="h3">
       {title}
     </Typography>
@@ -23,4 +15,4 @@ const Post = ({ classes, title, body }) => (
   </Paper>
 );
 
-export default withStyles(styles)(Post);
+export default withTheme(Post);

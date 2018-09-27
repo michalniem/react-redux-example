@@ -24,14 +24,17 @@ const GridList = styled(List)`
 `;
 
 const Photos = ({
-  data: { data, isLoading, error },
+  data: {
+    data,
+    isLoading,
+    error
+  },
 }) => (
   <Container>
     <GridList
       data={data}
       isLoading={isLoading}
       error={error}
-      limit={20}
       renderItem={item => (
         <Photo
           title={item.title}
