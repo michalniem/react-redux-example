@@ -1,18 +1,47 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 
+const Card = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-weight: 200;
+  color: ${({ theme }) => theme.colors.regentGrey};
+  border-radius: 4px;
+  transition: .24s cubic-bezier(.4,0,.3,1);
+  &:hover {
+    box-shadow: 0 4px 15px 0 rgba(40,44,53,.06), 0 2px 2px 0 rgba(40,44,53,.08);
+  }
+`;
+
+const CardHeader = styled.h2`
+  text-align: center;
+  font-size: ${({ theme }) => theme.size.large};
+  text-transform: uppercase;
+  font-weight: 400;
+  color: ${({ theme }) => theme.colors.regentGrey};
+  margin: 10px 0;
+  padding: 0 10px;
+`;
+
+const CardBody = styled.h3`
+  font-size: ${({ theme }) => theme.size.regular};
+  font-weight: 200;
+  color: ${({ theme }) => theme.colors.regentGrey};
+  padding: 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
 
 const Post = ({ title, body }) => (
-  <Paper elevation={1}>
-    <Typography variant="headline" component="h3">
+  <Card>
+    <CardHeader>
       {title}
-    </Typography>
-    <Typography component="p">
+    </CardHeader>
+    <CardBody>
       {body}
-    </Typography>
-  </Paper>
+    </CardBody>
+  </Card>
 );
 
 export default withTheme(Post);
