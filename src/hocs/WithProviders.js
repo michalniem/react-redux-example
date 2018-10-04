@@ -7,13 +7,13 @@ import reduxStore from '../store/configureStore';
 import theme from '../styles/themes';
 
 const WithProviders = WrappedComponent => () => (
-  <ReduxProvider store={reduxStore}>
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
+  <ThemeProvider theme={theme}>
+    <ReduxProvider store={reduxStore}>
+      <BrowserRouter>
         <WrappedComponent />
-      </ThemeProvider>
-    </BrowserRouter>
-  </ReduxProvider>
+      </BrowserRouter>
+    </ReduxProvider>
+  </ThemeProvider>
 );
 
 export default WithProviders;

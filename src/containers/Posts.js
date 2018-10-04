@@ -1,11 +1,11 @@
 import React from 'react';
 import { compose } from 'redux';
+import { connect } from 'react-redux';
 import styled, { withTheme } from 'styled-components';
-import instance from '../axiosConfig';
 
+import { getPosts } from '../store/api/selectors';
 import Post from '../components/Post';
 import List from './List';
-import WithData from '../hocs/WithData';
 
 const Container = styled.div`
   display: flex;
@@ -21,11 +21,10 @@ const ColumnList = styled(List)`
   padding: 0;
 `;
 
-const Posts = ({
-  data: { data, isLoading, error },
-}) => (
+const Posts = (props) => (
   <Container>
-    <ColumnList
+    {console.log(props)}
+    {/* <ColumnList
       data={data}
       isLoading={isLoading}
       error={error}
@@ -35,13 +34,17 @@ const Posts = ({
           body={item.body}
         />
       )}
-    />
+    /> */}
   </Container>
 );
 
+const mapStateToProps = state => ({
+  photos: getPosts(state),
+});
+
 const enhances = compose(
-  WithData('users', instance.get('posts')),
   withTheme,
+  connect(mapStateToProps),
 );
 
 export default enhances(Posts);

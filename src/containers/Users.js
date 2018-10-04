@@ -1,17 +1,24 @@
 import React from 'react';
 import { compose } from 'redux';
-import instance from '../axiosConfig';
+import { connect } from 'react-redux';
+import styled, { withTheme } from 'styled-components';
 
-import WithData from '../hocs/WithData';
+import { getUsers } from '../store/api/selectors';
 
-const Users = () => (
+const Users = (props) => (
   <div>
+    {console.log(props)}
     <h1>Users</h1>
   </div>
 );
 
+const mapStateToProps = state => ({
+  photos: getUsers(state),
+});
+
 const enhances = compose(
-  WithData('users', instance.get('users')),
+  withTheme,
+  connect(mapStateToProps),
 );
 
 export default enhances(Users);

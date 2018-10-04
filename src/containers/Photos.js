@@ -1,11 +1,11 @@
 import React from 'react';
 import { compose } from 'redux';
+import { connect } from 'react-redux';
 import styled, { withTheme } from 'styled-components';
-import instance from '../axiosConfig';
 
+import { getPhotos } from '../store/api/selectors';
 import Photo from '../components/Photo';
 import List from './List';
-import WithData from '../hocs/WithData';
 
 const Container = styled.div`
   display: flex;
@@ -23,15 +23,10 @@ const GridList = styled(List)`
   grid-gap: 10px 10px;
 `;
 
-const Photos = ({
-  data: {
-    data,
-    isLoading,
-    error
-  },
-}) => (
+const Photos = (props) => (
   <Container>
-    <GridList
+    {console.log(props)}
+    {/* <GridList
       data={data}
       isLoading={isLoading}
       error={error}
@@ -41,13 +36,17 @@ const Photos = ({
           thumbnailUrl={item.thumbnailUrl}
         />
       )}
-    />
+    /> */}
   </Container>
 );
 
+const mapStateToProps = state => ({
+  photos: getPhotos(state),
+});
+
 const enhances = compose(
-  WithData('photos', instance('photos')),
   withTheme,
+  connect(mapStateToProps),
 );
 
 export default enhances(Photos);

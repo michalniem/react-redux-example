@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import Bar from '../components/Bar';
 import WithProviders from '../hocs/WithProviders';
 import AsyncComponent from '../hocs/AsyncComponent';
+import WithAppData from '../hocs/WithAppData';
 
 const Root = () => (
   <Fragment>
@@ -29,6 +30,7 @@ const Root = () => (
 
 const enhances = compose(
   WithProviders,
+  WithAppData,
 );
 
 export default enhances(Root);
