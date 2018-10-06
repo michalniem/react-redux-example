@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { compose } from 'redux';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
 import Bar from '../components/Bar';
 import WithProviders from '../hocs/WithProviders';
@@ -30,6 +30,7 @@ const Root = () => (
 
 const enhances = compose(
   WithProviders,
+  withRouter,
   WithAppData,
 );
 

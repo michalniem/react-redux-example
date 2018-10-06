@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { compose } from 'redux';
 import styled, { withTheme } from 'styled-components';
 
 const Tabs = styled.div`
@@ -25,4 +26,9 @@ const NavBar = () => (
   </Tabs>
 );
 
-export default withTheme(NavBar);
+const enhances = compose(
+  withRouter,
+  withTheme,
+);
+
+export default enhances(NavBar);
