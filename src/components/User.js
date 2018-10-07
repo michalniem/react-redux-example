@@ -3,9 +3,9 @@ import styled, { withTheme } from 'styled-components';
 
 const Card = styled.div`
   width: 100%;
-  height: 350px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   font-weight: 200;
   color: ${({ theme }) => theme.colors.regentGrey};
   border-radius: 4px;
@@ -15,10 +15,10 @@ const Card = styled.div`
   }
 `;
 
-const CardMedia = styled.div`
+const Background = styled.div`
   width: 100%;
-  height: 200px;
-  background-image: url(${({ thumbnailUrl }) => thumbnailUrl});
+  height: 100px;
+  background-color: ${({ theme }) => theme.colors.lightGrey};
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -26,13 +26,34 @@ const CardMedia = styled.div`
   border-top-right-radius: 4px;
 `;
 
-const CardHeader = styled.h2`
+const Avatar = styled.div`
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: white;
+  transform: translateY(-50px);
+  overflow: hidden;
+  &:before {
+    content: '';
+    margin-top: 10px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url('https://redbanksmilesnj.com/wp-content/uploads/2015/11/man-avatar-placeholder.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+`;
+
+const Data = styled.div`
   font-size: ${({ theme }) => theme.size.large};
-  text-transform: uppercase;
-  font-weight: 400;
   color: ${({ theme }) => theme.colors.regentGrey};
   margin: 10px 0;
   padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 `;
 
 const CardTitle = styled.h3`
@@ -42,12 +63,12 @@ const CardTitle = styled.h3`
   padding: 0 10px;
 `;
 
-const Photo = ({ title, thumbnailUrl }) => (
+const User = ({ name }) => (
   <Card>
-    <CardMedia thumbnailUrl={thumbnailUrl} />
-    <CardHeader>Example header</CardHeader>
-    <CardTitle>{title}</CardTitle>
+    <Background />
+    <Avatar />
+    <Data>{name}</Data>
   </Card>
 );
 
-export default withTheme(Photo);
+export default withTheme(User);

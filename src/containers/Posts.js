@@ -13,10 +13,10 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   padding: 20px;
-  width: 100vw;
 `;
 
 const ColumnList = styled(List)`
+  width: 100%;
   list-style-type: none;
   padding: 0;
 `;

@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-const getAllUsers = state => state.posts;
+const getAllUsers = state => state.users;
 
 const getUsers = (users) => {
   if (users.data) {

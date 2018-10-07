@@ -16,6 +16,7 @@ const Container = styled.div`
 `;
 
 const GridList = styled(List)`
+  width: 100%;
   padding: 0;
   list-style-type: none;
   display: grid;
