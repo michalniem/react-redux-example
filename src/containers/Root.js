@@ -1,11 +1,27 @@
 import React, { Fragment } from 'react';
 import { compose } from 'redux';
 import { Route, withRouter } from 'react-router-dom';
+import Loadable from 'react-loadable';
 
 import Bar from '../components/Bar';
 import WithProviders from '../hocs/WithProviders';
-import AsyncComponent from '../hocs/AsyncComponent';
+import Loading from '../shared/Loading';
 import WithAppData from '../hocs/WithAppData';
+
+const Users = Loadable({
+  loader: () => import('./Users'),
+  loading: Loading,
+});
+
+const Photos = Loadable({
+  loader: () => import('./Photos'),
+  loading: Loading,
+});
+
+const Posts = Loadable({
+  loader: () => import('./Posts'),
+  loading: Loading,
+});
 
 const Root = () => (
   <Fragment>
@@ -13,17 +29,17 @@ const Root = () => (
     <Route
       exact
       path="/users"
-      component={AsyncComponent(() => import('./Users'))}
+      component={Users}
     />
     <Route
       exact
       path="/photos"
-      component={AsyncComponent(() => import('./Photos'))}
+      component={Photos}
     />
     <Route
       exact
       path="/posts"
-      component={AsyncComponent(() => import('./Posts'))}
+      component={Posts}
     />
   </Fragment>
 );

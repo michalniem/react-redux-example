@@ -4,7 +4,7 @@ const getAllPosts = state => state.posts;
 
 const getPosts = (posts) => {
   if (posts.data) {
-    const selectedPosts = posts.data.data;
+    const selectedPosts = posts.data.data.filter(p => p.id <= 20);
     return {
       ...posts,
       data: selectedPosts,
