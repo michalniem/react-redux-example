@@ -3,17 +3,22 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import styled, { withTheme } from 'styled-components';
 
-import { getUsers } from '../store/api/selectors';
+import usersSelector from '../store/api/selectors/users';
 
-const Users = (props) => (
+const Users = ({
+  users: {
+    data,
+    isLoading,
+    error,
+  }
+}) => (
   <div>
-    {console.log(props)}
     <h1>Users</h1>
   </div>
 );
 
 const mapStateToProps = state => ({
-  photos: getUsers(state),
+  users: usersSelector(state),
 });
 
 const enhances = compose(

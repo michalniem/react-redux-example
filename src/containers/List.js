@@ -11,7 +11,7 @@ const List = ({
   <React.Fragment>
     {data && (
       <ul className={className}>
-        {data.data.map(item => <li key={item.id}>{renderItem(item)}</li>)}
+        {data.map(item => <li key={item.id}>{renderItem(item)}</li>)}
       </ul>
     )}
     {isLoading && <CircularProgress size={50} />}

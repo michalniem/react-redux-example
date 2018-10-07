@@ -3,7 +3,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import styled, { withTheme } from 'styled-components';
 
-import { getPosts } from '../store/api/selectors';
+import postsSelector from '../store/api/selectors/posts';
 import Post from '../components/Post';
 import List from './List';
 
@@ -21,10 +21,15 @@ const ColumnList = styled(List)`
   padding: 0;
 `;
 
-const Posts = (props) => (
+const Posts = ({
+  posts: {
+    data,
+    isLoading,
+    error,
+  }
+}) => (
   <Container>
-    {console.log(props)}
-    {/* <ColumnList
+    <ColumnList
       data={data}
       isLoading={isLoading}
       error={error}
@@ -34,12 +39,18 @@ const Posts = (props) => (
           body={item.body}
         />
       )}
-    /> */}
+    />
   </Container>
 );
 
+Posts.defaultProps = {
+  posts: {
+    data: [],
+  },
+};
+
 const mapStateToProps = state => ({
-  photos: getPosts(state),
+  posts: postsSelector(state),
 });
 
 const enhances = compose(

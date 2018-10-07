@@ -3,7 +3,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import styled, { withTheme } from 'styled-components';
 
-import { getPhotos } from '../store/api/selectors';
+import photosSelector from '../store/api/selectors/photos';
 import Photo from '../components/Photo';
 import List from './List';
 
@@ -23,10 +23,15 @@ const GridList = styled(List)`
   grid-gap: 10px 10px;
 `;
 
-const Photos = (props) => (
+const Photos = ({
+  photos: {
+    data,
+    isLoading,
+    error,
+  }
+}) => (
   <Container>
-    {console.log(props)}
-    {/* <GridList
+    <GridList
       data={data}
       isLoading={isLoading}
       error={error}
@@ -36,12 +41,12 @@ const Photos = (props) => (
           thumbnailUrl={item.thumbnailUrl}
         />
       )}
-    /> */}
+    />
   </Container>
 );
 
 const mapStateToProps = state => ({
-  photos: getPhotos(state),
+  photos: photosSelector(state),
 });
 
 const enhances = compose(
