@@ -63,11 +63,15 @@ const CardTitle = styled.h3`
   padding: 0 10px;
 `;
 
-const User = ({ name }) => (
+const User = ({ name, email, website }) => (
   <Card>
     <Background />
     <Avatar />
-    <Data>{name}</Data>
+    <Data>
+      <span>{name}</span>
+      <span>{email}</span>
+      <span>{website}</span>
+    </Data>
   </Card>
 );
 

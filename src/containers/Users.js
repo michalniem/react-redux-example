@@ -38,7 +38,11 @@ const Users = ({
       isLoading={isLoading}
       error={error}
       renderItem={item => (
-        <User name={item.name} />
+        <User
+          name={item.name}
+          email={item.email}
+          website={item.website}
+        />
       )}
     />
   </Container>
