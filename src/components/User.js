@@ -12,10 +12,11 @@ const Card = styled.div`
   transition: .24s cubic-bezier(.4,0,.3,1);
   &:hover {
     box-shadow: 0 4px 15px 0 rgba(40,44,53,.06), 0 2px 2px 0 rgba(40,44,53,.08);
+    cursor: pointer;
   }
 `;
 
-const Background = styled.div`
+const UserBackground = styled.div`
   width: 100%;
   height: 100px;
   background-color: ${({ theme }) => theme.colors.lightGrey};
@@ -26,7 +27,7 @@ const Background = styled.div`
   border-top-right-radius: 4px;
 `;
 
-const Avatar = styled.div`
+const UserAvatar = styled.div`
   height: 100px;
   width: 100px;
   border-radius: 50%;
@@ -46,32 +47,32 @@ const Avatar = styled.div`
   }
 `;
 
-const Data = styled.div`
+const UserData = styled.div`
   font-size: ${({ theme }) => theme.size.large};
   color: ${({ theme }) => theme.colors.regentGrey};
-  margin: 10px 0;
+  margin-bottom: 10px;
   padding: 0 10px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 `;
 
-const CardTitle = styled.h3`
+const UserProperty = styled.h3`
   font-size: ${({ theme }) => theme.size.regular};
   font-weight: 200;
   color: ${({ theme }) => theme.colors.regentGrey};
-  padding: 0 10px;
+  margin: 0;
+  margin-bottom: 10px;
 `;
 
-const User = ({ name, email, website }) => (
+const User = ({ name, email }) => (
   <Card>
-    <Background />
-    <Avatar />
-    <Data>
-      <span>{name}</span>
-      <span>{email}</span>
-      <span>{website}</span>
-    </Data>
+    <UserBackground />
+    <UserAvatar />
+    <UserData>
+      <UserProperty>{name}</UserProperty>
+      <UserProperty>{email}</UserProperty>
+    </UserData>
   </Card>
 );
 

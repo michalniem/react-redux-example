@@ -32,7 +32,6 @@ const Users = ({
   }
 }) => (
   <Container>
-    {console.log(data)}
     <GridList
       data={data}
       isLoading={isLoading}
