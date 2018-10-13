@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const List = ({
   data,
@@ -13,5 +14,15 @@ const List = ({
     )}
   </React.Fragment>
 );
+
+List.defaultProps = {
+  data: [],
+};
+
+List.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object),
+  renderItem: PropTypes.func.isRequired,
+  className: PropTypes.string.isRequired,
+};
 
 export default List;
