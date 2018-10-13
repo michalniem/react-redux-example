@@ -1,25 +1,11 @@
 import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import styled, { withTheme } from 'styled-components';
+import { withTheme } from 'styled-components';
 
 import postsSelector from '../store/api/selectors/posts';
 import Post from '../components/Post';
-import List from './List';
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-`;
-
-const ColumnList = styled(List)`
-  width: 100%;
-  list-style-type: none;
-  padding: 0;
-`;
+import { VerticalListContainer, VerticalList } from '../styles/common';
 
 const Posts = ({
   posts: {
@@ -28,8 +14,8 @@ const Posts = ({
     error,
   }
 }) => (
-  <Container>
-    <ColumnList
+  <VerticalListContainer>
+    <VerticalList
       data={data}
       isLoading={isLoading}
       error={error}
@@ -40,7 +26,7 @@ const Posts = ({
         />
       )}
     />
-  </Container>
+  </VerticalListContainer>
 );
 
 Posts.defaultProps = {

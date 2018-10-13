@@ -1,28 +1,11 @@
 import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import styled, { withTheme } from 'styled-components';
+import { withTheme } from 'styled-components';
 
 import usersSelector from '../store/api/selectors/users';
 import User from '../components/User';
-import List from './List';
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-`;
-
-const GridList = styled(List)`
-  width: 100%;
-  padding: 0;
-  list-style-type: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 10px 10px;
-`;
+import { GridListContainer, GridList } from '../styles/common';
 
 const Users = ({
   users: {
@@ -31,7 +14,7 @@ const Users = ({
     error,
   }
 }) => (
-  <Container>
+  <GridListContainer>
     <GridList
       data={data}
       isLoading={isLoading}
@@ -44,7 +27,7 @@ const Users = ({
         />
       )}
     />
-  </Container>
+  </GridListContainer>
 );
 
 const mapStateToProps = state => ({

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
 
-const Card = styled.div`
+const CardWrapper = styled.div`
   width: 100%;
   height: 350px;
   display: flex;
@@ -15,7 +15,7 @@ const Card = styled.div`
   }
 `;
 
-const CardMedia = styled.div`
+const CardImage = styled.div`
   width: 100%;
   height: 200px;
   background-image: url(${({ thumbnailUrl }) => thumbnailUrl});
@@ -43,11 +43,11 @@ const CardTitle = styled.h3`
 `;
 
 const Photo = ({ title, thumbnailUrl }) => (
-  <Card>
-    <CardMedia thumbnailUrl={thumbnailUrl} />
+  <CardWrapper>
+    <CardImage thumbnailUrl={thumbnailUrl} />
     <CardHeader>Example header</CardHeader>
     <CardTitle>{title}</CardTitle>
-  </Card>
+  </CardWrapper>
 );
 
 export default withTheme(Photo);
