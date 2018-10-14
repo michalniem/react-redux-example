@@ -5,7 +5,7 @@ import { withTheme } from 'styled-components';
 
 import photosSelector from '../store/api/selectors/photos';
 import Photo from '../components/Photo';
-import { GridListContainer, GridList } from '../styles/common';
+import List from '../styles/blocks/List';
 
 const Photos = ({
   photos: {
@@ -14,8 +14,8 @@ const Photos = ({
     error,
   }
 }) => (
-  <GridListContainer>
-    <GridList
+  <List>
+    <List.Grid
       data={data}
       isLoading={isLoading}
       error={error}
@@ -26,7 +26,7 @@ const Photos = ({
         />
       )}
     />
-  </GridListContainer>
+  </List>
 );
 
 const mapStateToProps = state => ({

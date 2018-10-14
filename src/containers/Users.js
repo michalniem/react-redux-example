@@ -5,7 +5,7 @@ import { withTheme } from 'styled-components';
 
 import usersSelector from '../store/api/selectors/users';
 import User from '../components/User';
-import { GridListContainer, GridList } from '../styles/common';
+import List from '../styles/blocks/List';
 
 const Users = ({
   users: {
@@ -14,8 +14,8 @@ const Users = ({
     error,
   }
 }) => (
-  <GridListContainer>
-    <GridList
+  <List>
+    <List.Grid
       data={data}
       isLoading={isLoading}
       error={error}
@@ -27,7 +27,7 @@ const Users = ({
         />
       )}
     />
-  </GridListContainer>
+  </List>
 );
 
 const mapStateToProps = state => ({

@@ -5,7 +5,7 @@ import { withTheme } from 'styled-components';
 
 import postsSelector from '../store/api/selectors/posts';
 import Post from '../components/Post';
-import { VerticalListContainer, VerticalList } from '../styles/common';
+import List from '../styles/blocks/List';
 
 const Posts = ({
   posts: {
@@ -14,8 +14,8 @@ const Posts = ({
     error,
   }
 }) => (
-  <VerticalListContainer>
-    <VerticalList
+  <List>
+    <List.Vertical
       data={data}
       isLoading={isLoading}
       error={error}
@@ -26,7 +26,7 @@ const Posts = ({
         />
       )}
     />
-  </VerticalListContainer>
+  </List>
 );
 
 Posts.defaultProps = {

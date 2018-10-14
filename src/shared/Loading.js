@@ -1,11 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Text = styled.h3`
-  color: ${({ theme }) => theme.colors.orange};
-  font-size: ${({ theme }) => theme.size.xlarge};
-  margin: 100px auto;
-`;
+import P from '../styles/elements/P';
 
 export default ({
   error,
@@ -15,20 +11,20 @@ export default ({
 }) => {
   if (error) {
     return (
-      <Text>
+      <P>
         Error!
         <button onClick={retry}>Retry</button>
-      </Text>
+      </P>
     );
   } else if (timedOut) {
     return (
-      <Text>
+      <P>
         Taking a long time...
         <button onClick={retry}>Retry</button>
-      </Text>
+      </P>
     );
   } else if (pastDelay) {
-    return <Text>Loading...</Text>;
+    return <P>Loading...</P>;
   } else {
     return null;
   }
