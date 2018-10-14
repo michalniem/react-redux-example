@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withTheme } from 'styled-components';
@@ -12,7 +13,7 @@ const Users = ({
     data,
     isLoading,
     error,
-  }
+  },
 }) => (
   <List>
     <List.Grid
@@ -38,5 +39,13 @@ const enhances = compose(
   withTheme,
   connect(mapStateToProps),
 );
+
+Users.propTypes = {
+  users: PropTypes.shape({
+    data: PropTypes.arrayOf(PropTypes.object),
+    isLoading: PropTypes.bool,
+    error: PropTypes.string,
+  }).isRequired,
+};
 
 export default enhances(Users);

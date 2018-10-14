@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withTheme } from 'styled-components';
 
 import Card from '../styles/blocks/Card/index';
@@ -14,5 +15,10 @@ const Post = ({ title, body }) => (
     </P>
   </Card>
 );
+
+Post.propTypes = {
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+};
 
 export default withTheme(Post);

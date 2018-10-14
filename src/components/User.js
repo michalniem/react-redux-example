@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withTheme } from 'styled-components';
 
 import Card from '../styles/blocks/Card';
@@ -14,5 +15,10 @@ const User = ({ name, email }) => (
     </Card.Info>
   </Card>
 );
+
+User.propTypes = {
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+};
 
 export default withTheme(User);
