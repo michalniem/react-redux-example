@@ -7,8 +7,7 @@ const Container = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: ${({ theme }) => theme.colors.regentGrey};
-  opacity: .5;
+  background: rgb(128, 126, 126, .5);
   display: flex;
   align-items: center;
   justify-content: center;
