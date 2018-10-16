@@ -4,6 +4,7 @@ import { Route, withRouter } from 'react-router-dom';
 import Loadable from 'react-loadable';
 
 import Bar from '../components/Bar';
+import Button from '../styles/elements/Button';
 import WithProviders from '../hocs/WithProviders';
 import Loading from '../shared/Loading';
 import WithAppData from '../hocs/WithAppData';
@@ -26,6 +27,7 @@ const Posts = Loadable({
 const Root = () => (
   <Fragment>
     <Bar />
+    <Button>Add new item</Button>
     <Route
       exact
       path="/users"
