@@ -27,7 +27,7 @@ const Posts = Loadable({
 const Root = () => (
   <Fragment>
     <Bar />
-    <Button>Add new item</Button>
+    {/* <Button>Add new item</Button> */}
     <Route
       exact
       path="/users"
