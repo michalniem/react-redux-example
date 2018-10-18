@@ -1,19 +1,35 @@
 import { createSelector } from 'reselect';
 
 const getAllPhotos = state => state.photos;
+const getVisibilityFilter = state => state.photos.visibilityFilter;
 
-const getPhotos = (photos) => {
+const getSelectedPhotos = (visibilityFilter, photos) => {
   if (photos.data) {
-    const selectedPhotos = photos.data.data.filter(p => p.id <= 20);
-    return {
-      ...photos,
-      data: selectedPhotos,
-    };
+    switch (visibilityFilter) {
+      case 'SHOW_ALL':
+        return {
+          ...photos,
+          data: photos.data.data,
+        };
+      case 'SHOW_FIRST':
+        return {
+          ...photos,
+          data: photos.data.data.slice(0, 20),
+        };
+      case 'SHOW_ALBUMID_1':
+        return {
+          ...photos,
+          data: photos.data.data.filter(e => e.albumId === 1),
+        };
+      default:
+        return photos;
+    }
   }
   return photos;
 };
 
 export default createSelector(
+  getVisibilityFilter,
   getAllPhotos,
-  getPhotos,
+  getSelectedPhotos,
 );
