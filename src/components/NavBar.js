@@ -10,6 +10,7 @@ const NavBar = () => (
     <Tab to="/photos">Photos</Tab>
     <Tab to="/users">Users</Tab>
     <Tab to="/posts">Posts</Tab>
+    <Tab to="/movies">Movies</Tab>
   </Tab.Container>
 );
 

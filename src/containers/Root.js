@@ -4,7 +4,6 @@ import { Route, withRouter } from 'react-router-dom';
 import Loadable from 'react-loadable';
 
 import Bar from '../components/Bar';
-import Button from '../styles/elements/Button';
 import WithProviders from '../hocs/WithProviders';
 import Loading from '../shared/Loading';
 import WithAppData from '../hocs/WithAppData';
@@ -21,6 +20,11 @@ const Photos = Loadable({
 
 const Posts = Loadable({
   loader: () => import('./Posts'),
+  loading: Loading,
+});
+
+const Movies = Loadable({
+  loader: () => import('./Movies'),
   loading: Loading,
 });
 
@@ -42,6 +46,11 @@ const Root = () => (
       exact
       path="/posts"
       component={Posts}
+    />
+    <Route
+      exact
+      path="/movies"
+      component={Movies}
     />
   </Fragment>
 );

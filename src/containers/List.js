@@ -7,11 +7,12 @@ const List = ({
   className,
 }) => (
   <React.Fragment>
-    {data && (
+    {data ?
       <ul className={className}>
         {data.map(item => <li key={item.id}>{renderItem(item)}</li>)}
-      </ul>
-    )}
+      </ul> :
+      <p>Loading...</p>
+    }
   </React.Fragment>
 );
 
