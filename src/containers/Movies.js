@@ -6,7 +6,7 @@ import { withTheme } from 'styled-components';
 
 import Movie from '../components/Movie';
 import List from '../styles/blocks/List';
-import moviesSelector from '../store/api/selectors/movies';
+import selectedMovies from '../store/api/selectors/movies';
 
 const Movies = ({
   movies: {
@@ -31,7 +31,7 @@ const Movies = ({
 );
 
 const mapStateToProps = state => ({
-  movies: moviesSelector(state),
+  movies: selectedMovies(state),
 });
 
 const enhances = compose(

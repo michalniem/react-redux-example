@@ -2,12 +2,12 @@ import { createSelector } from 'reselect';
 
 const getAllMovies = state => state.movies;
 
-const getMovies = (movies) => {
+const getSelectedMovies = (movies) => {
   if (movies.data) {
-    const selectedUsers = movies.data.data;
+    const selectedMovies = movies.data.data;
     return {
       ...movies,
-      data: selectedUsers,
+      data: selectedMovies,
     };
   }
   return movies;
@@ -15,5 +15,5 @@ const getMovies = (movies) => {
 
 export default createSelector(
   getAllMovies,
-  getMovies,
+  getSelectedMovies,
 );
