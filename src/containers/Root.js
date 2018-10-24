@@ -1,32 +1,20 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, lazy, Suspense } from 'react';
 import { compose } from 'redux';
 import { Route, withRouter } from 'react-router-dom';
-import Loadable from 'react-loadable';
+// import Loadable from 'react-loadable';
 
 import Bar from '../components/Bar';
 import WithProviders from '../hocs/WithProviders';
 import Loading from '../shared/Loading';
 import WithAppData from '../hocs/WithAppData';
 
-const Users = Loadable({
-  loader: () => import('./Users'),
-  loading: Loading,
-});
+const Users = lazy(() => import('./Users'));
 
-const Photos = Loadable({
-  loader: () => import('./Photos'),
-  loading: Loading,
-});
+const Photos = lazy(() => import('./Photos'));
 
-const Posts = Loadable({
-  loader: () => import('./Posts'),
-  loading: Loading,
-});
+const Posts = lazy(() => import('./Posts'));
 
-const Movies = Loadable({
-  loader: () => import('./Movies'),
-  loading: Loading,
-});
+const Movies = lazy(() => import('./Movies'));
 
 const Root = () => (
   <Fragment>
