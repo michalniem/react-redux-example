@@ -6,14 +6,14 @@ import { ThemeProvider } from 'styled-components';
 import reduxStore from '../store/configureStore';
 import theme from '../styles/themes';
 
-const WithProviders = WrappedComponent => () => (
+const Providers = ({ children }) => (
   <ThemeProvider theme={theme}>
     <ReduxProvider store={reduxStore}>
       <BrowserRouter>
-        <WrappedComponent />
+        {children}
       </BrowserRouter>
     </ReduxProvider>
   </ThemeProvider>
 );
 
-export default WithProviders;
+export default Providers;
