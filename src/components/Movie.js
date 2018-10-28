@@ -16,7 +16,6 @@ const Movie = ({
   <React.Fragment>
     <Card onClick={() => setPreview(p => !p)}>
       <Card.Image thumbnailUrl={thumbnailUrl} />
-      <P>{title}</P>
     </Card>
     {preview &&
       <Modal.Container onClick={() => setPreview(p => !p)}>

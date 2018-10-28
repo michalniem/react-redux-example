@@ -9,9 +9,7 @@ import theme from '../styles/themes';
 const Providers = ({ children }) => (
   <ThemeProvider theme={theme}>
     <ReduxProvider store={reduxStore}>
-      <BrowserRouter>
-        {children}
-      </BrowserRouter>
+      {children}
     </ReduxProvider>
   </ThemeProvider>
 );

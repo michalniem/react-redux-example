@@ -7,12 +7,10 @@ import NavBar from './NavBar';
 
 const AppBar = () => (
   <Bar>
-    <Logo
-      to="/"
-    >
+    <Logo>
       React-redux-example
     </Logo>
-    <NavBar />
+    {/* <NavBar /> */}
   </Bar>
 );
 
