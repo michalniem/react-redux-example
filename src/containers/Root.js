@@ -3,7 +3,6 @@ import { compose } from 'redux';
 
 import Bar from '../components/Bar';
 import Movies from './Movies';
-import Loading from '../shared/Loading';
 import WithAppData from '../hocs/WithAppData';
 
 const Root = () => (

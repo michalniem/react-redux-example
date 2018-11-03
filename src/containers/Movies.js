@@ -6,6 +6,7 @@ import { withTheme } from 'styled-components';
 
 import Movie from '../components/Movie';
 import List from '../styles/blocks/List';
+import Select from '../components/Select';
 import selectedMovies from '../store/api/selectors/movies';
 
 const Movies = ({
@@ -15,19 +16,22 @@ const Movies = ({
     error,
   },
 }) => (
-  <List>
-    <List.Grid
-      data={data}
-      isLoading={isLoading}
-      error={error}
-      renderItem={item => (
-        <Movie
-          title={item.name}
-          thumbnailUrl={item.image.original}
-        />
-      )}
-    />
-  </List>
+  <React.Fragment>
+    <Select options={['Thriller', 'Comedy', 'Action']} />
+    <List>
+      <List.Grid
+        data={data}
+        isLoading={isLoading}
+        error={error}
+        renderItem={item => (
+          <Movie
+            title={item.name}
+            thumbnailUrl={item.image.original}
+          />
+        )}
+      />
+    </List>
+  </React.Fragment>
 );
 
 const mapStateToProps = state => ({

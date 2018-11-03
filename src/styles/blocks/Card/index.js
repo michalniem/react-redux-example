@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-import Background from './Background';
-import Avatar from './Avatar';
-import Info from './Info';
-import Header from './Header';
 import Image from './Image';
 
 const Card = styled.div`
@@ -22,10 +18,6 @@ const Card = styled.div`
   }
 `;
 
-Card.Background = Background;
-Card.Avatar = Avatar;
-Card.Info = Info;
-Card.Header = Header;
 Card.Image = Image;
 
 export default Card;

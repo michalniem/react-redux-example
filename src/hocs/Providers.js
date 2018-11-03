@@ -1,6 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Provider as ReduxProvider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import reduxStore from '../store/configureStore';
@@ -13,5 +13,9 @@ const Providers = ({ children }) => (
     </ReduxProvider>
   </ThemeProvider>
 );
+
+Providers.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default Providers;

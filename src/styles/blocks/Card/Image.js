@@ -8,10 +8,7 @@ const Image = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 4px;
-  transition: .5s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transition: .2s;
   &:hover {
     transform: scale(1.2);
     filter: grayscale(100%);

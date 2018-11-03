@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { compose, bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -13,15 +12,9 @@ const WithAppData = WrappedComponent => class extends Component {
 
   fetchAppData = () => {
     const {
-      fetchUsers,
-      fetchPosts,
-      fetchPhotos,
       fetchMovies,
     } = this.props;
 
-    fetchUsers();
-    fetchPosts();
-    fetchPhotos();
     fetchMovies();
   }
 
@@ -30,15 +23,9 @@ const WithAppData = WrappedComponent => class extends Component {
   }
 };
 
-const fetchUsers = fetchDataFactory('users', instance('users'));
-const fetchPosts = fetchDataFactory('posts', instance('posts'));
-const fetchPhotos = fetchDataFactory('photos', instance('photos'));
-const fetchMovies = fetchDataFactory('movies', axios.get('http://localhost:3000/movies'));
+const fetchMovies = fetchDataFactory('movies', instance.get('movies'));
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchUsers,
-  fetchPosts,
-  fetchPhotos,
   fetchMovies,
 }, dispatch);
 

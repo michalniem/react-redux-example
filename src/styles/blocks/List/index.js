@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 import Grid from './Grid';
-import Vertical from './Vertical';
 
 const List = styled.div`
   display: flex;
@@ -12,6 +11,5 @@ const List = styled.div`
 `;
 
 List.Grid = Grid;
-List.Vertical = Vertical;
 
 export default List;
