@@ -8,7 +8,9 @@ const initialState = {
   data: null,
   isLoading: false,
   error: null,
-  visibilityFilter: 'SHOW_FIRST',
+  filters: {
+    text: '',
+  },
 };
 
 export default name => (state = initialState, { type, payload }) => {

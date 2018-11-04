@@ -18,6 +18,7 @@ export const fetchErrored = (name, error) => ({
   payload: error,
 });
 
+
 export const fetchDataFactory = (name, instance) => () => async (dispatch) => {
   dispatch(fetchStarted(name));
   try {

@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 
 const getAllMovies = state => state.movies;
-const getFilters = state => state.filters;
+const getFilters = state => state.movies.filters;
 
 const getSelectedMovies = (movies, { text }) => {
   if (movies.data) {

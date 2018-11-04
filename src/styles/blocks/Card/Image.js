@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Image = styled.div`
   width: 100%;
-  height: 200px;
+  height: 400px;
   background-image: url(${({ thumbnailUrl }) => thumbnailUrl});
   background-position: center;
   background-repeat: no-repeat;
