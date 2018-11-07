@@ -1,28 +1,22 @@
 import React from 'react';
 import { compose } from 'redux';
-import { withFormik } from 'formik';
+import { withFormik, Form, Field } from 'formik';
 import { connect } from 'react-redux';
 
 import { changeFilter } from '../store/filters/actionCreators';
 
-const Form = ({
-  values,
-  touched,
-  errors,
-  handleChange,
-  handleBlur,
-  handleSubmit,
-}) => (
-  <form onSubmit={handleSubmit}>
-    <input
+const FiltersForm = () => (
+  <Form>
+    <Field
       type="text"
-      onChange={handleChange}
-      onBlur={handleBlur}
-      value={values.name}
       name="name"
     />
+    <Field
+      type="text"
+      name="genres"
+    />
     <button type="submit">Submit</button>
-  </form>
+  </Form>
 );
 
 
@@ -33,7 +27,10 @@ const mapDispatchToProps = dispatch => ({
 const enhances = compose(
   connect(null, mapDispatchToProps),
   withFormik({
-    mapPropsToValues: () => ({ name: '' }),
+    mapPropsToValues: () => ({
+      name: '',
+      genres: '',
+    }),
 
     // validate: (values) => {
     //   const errors = {};
@@ -47,14 +44,11 @@ const enhances = compose(
 
     handleSubmit: (values, { props: { setFilter } }) => {
       setFilter('name', values.name);
-    },
-
-    handleChange: (e) => {
-      console.log(e);
+      setFilter('genres', values.genres);
     },
 
     displayName: 'filtersForm',
   }),
 );
 
-export default enhances(Form);
+export default enhances(FiltersForm);

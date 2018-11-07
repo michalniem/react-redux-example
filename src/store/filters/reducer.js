@@ -2,6 +2,7 @@ import { changeFilterType } from './actionTypes';
 
 const initialState = {
   name: '',
+  genres: '',
 };
 
 const initialPayload = {
