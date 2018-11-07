@@ -1,1 +1,1 @@
-export const changeFilterType = filter => `CHANGE_${filter}`;
+export const changeFilterType = filter => `CHANGE_${filter}_FILTER`;

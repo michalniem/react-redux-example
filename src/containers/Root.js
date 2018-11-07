@@ -3,13 +3,13 @@ import { compose } from 'redux';
 
 import Bar from '../components/Bar';
 import Movies from './Movies';
-import Form from './Form';
+import FiltersForm from './FiltersForm';
 import WithAppData from '../hocs/WithAppData';
 
 const Root = () => (
   <Fragment>
     <Bar />
-    <Form />
+    <FiltersForm />
     <Movies />
   </Fragment>
 );

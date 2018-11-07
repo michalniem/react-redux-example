@@ -8,9 +8,6 @@ const initialState = {
   data: null,
   isLoading: false,
   error: null,
-  filters: {
-    text: '',
-  },
 };
 
 export default name => (state = initialState, { type, payload }) => {

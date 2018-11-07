@@ -21,38 +21,39 @@ const Form = ({
       value={values.name}
       name="name"
     />
-    {/* {errors.name && touched.name && <div id="feedback">{errors.name}</div>} */}
     <button type="submit">Submit</button>
   </form>
 );
 
+
+const mapDispatchToProps = dispatch => ({
+  setFilter: (filterName, value) => dispatch(changeFilter(filterName, value)),
+});
+
 const enhances = compose(
+  connect(null, mapDispatchToProps),
   withFormik({
     mapPropsToValues: () => ({ name: '' }),
 
-    validate: (values) => {
-      const errors = {};
+    // validate: (values) => {
+    //   const errors = {};
 
-      if (!values.name) {
-        errors.name = 'Required';
-      }
+    //   if (!values.name) {
+    //     errors.name = 'Required';
+    //   }
 
-      return errors;
-    },
+    //   return errors;
+    // },
 
-    handleSubmit: (values, { setSubmitting }) => {
-      // setTimeout(() => {
-      //   alert(JSON.stringify(values, null, 2));
-      //   setSubmitting(false);
-      // }, 1000);
-      console.log(values);
+    handleSubmit: (values, { props: { setFilter } }) => {
+      setFilter('name', values.name);
     },
 
     handleChange: (e) => {
       console.log(e);
     },
 
-    displayName: 'BasicForm',
+    displayName: 'filtersForm',
   }),
 );
 
