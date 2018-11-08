@@ -1,21 +1,16 @@
-import { changeFilterType } from './actionTypes';
+import { changeFiltersType } from './actionTypes';
 
 const initialState = {
   name: '',
   genres: '',
 };
 
-const initialPayload = {
-  filterName: '',
-  value: '',
-};
-
-export default (state = initialState, { type, payload = initialPayload }) => {
+export default (state = initialState, { type, payload }) => {
   switch (type) {
-    case changeFilterType(payload.filterName):
+    case changeFiltersType:
       return {
         ...state,
-        [payload.filterName]: payload.value,
+        ...payload,
       };
     default:
       return state;

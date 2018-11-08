@@ -3,7 +3,7 @@ import { compose } from 'redux';
 import { withFormik, Form, Field } from 'formik';
 import { connect } from 'react-redux';
 
-import { changeFilter } from '../store/filters/actionCreators';
+import { changeFilters } from '../store/filters/actionCreators';
 
 const FiltersForm = () => (
   <Form>
@@ -21,7 +21,7 @@ const FiltersForm = () => (
 
 
 const mapDispatchToProps = dispatch => ({
-  setFilter: (filterName, value) => dispatch(changeFilter(filterName, value)),
+  setFilter: filters => dispatch(changeFilters(filters)),
 });
 
 const enhances = compose(
@@ -43,8 +43,7 @@ const enhances = compose(
     // },
 
     handleSubmit: (values, { props: { setFilter } }) => {
-      setFilter('name', values.name);
-      setFilter('genres', values.genres);
+      setFilter(values);
     },
 
     displayName: 'filtersForm',
