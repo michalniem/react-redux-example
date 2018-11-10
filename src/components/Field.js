@@ -11,9 +11,9 @@ const Field = ({
   placeholder,
   setFilter,
 }) => {
-  const [value, setValue] = useState('');
-  const handleChange = (e) => {
-    setValue(e.target.value);
+  const [fieldValue, setFieldValue] = useState('');
+  const handleChange = ({ target: { value } }) => {
+    setFieldValue(value);
     setFilter(filterName, value);
   };
 
@@ -21,7 +21,7 @@ const Field = ({
     <input
       type={type}
       placeholder={placeholder}
-      value={value}
+      value={fieldValue}
       onChange={handleChange}
     />
   );
@@ -36,7 +36,7 @@ Field.propTypes = {
   filterName: PropTypes.string.isRequired,
   type: PropTypes.string,
   placeholder: PropTypes.string,
-  setFilter: PropTypes.function.isRequired,
+  setFilter: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
