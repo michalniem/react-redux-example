@@ -1,6 +1,7 @@
 import { changeFiltersType } from './actionTypes';
 
-export const changeFilters = filters => ({
-  type: changeFiltersType,
-  payload: filters,
+export const changeFilters = (filterName, value) => ({
+  type: changeFiltersType(filterName),
+  filterName,
+  payload: value,
 });

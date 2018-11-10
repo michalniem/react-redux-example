@@ -7,13 +7,13 @@ const filterMovie = (movie, key, filterValue) => toLower(movie[key]).includes(to
 const getAllMovies = state => state.movies;
 const getFilters = state => state.filters;
 
-const getSelectedMovies = (movies, { name, genres }) => {
+const getSelectedMovies = (movies, { text, genres }) => {
   if (movies.data) {
     const allMovies = movies.data.data;
 
     const selectedMovies =
       allMovies
-        .filter(movie => filterMovie(movie, 'name', name))
+        .filter(movie => filterMovie(movie, 'name', text))
         .filter(movie => filterMovie(movie, 'genres', genres));
     return {
       ...movies,

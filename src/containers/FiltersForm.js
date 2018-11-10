@@ -1,53 +1,31 @@
 import React from 'react';
 import { compose } from 'redux';
-import { withFormik, Form, Field } from 'formik';
 import { connect } from 'react-redux';
 
+import Filed from '../components/Field';
 import { changeFilters } from '../store/filters/actionCreators';
 
 const FiltersForm = () => (
-  <Form>
-    <Field
+  <form>
+    <Filed
       type="text"
-      name="name"
+      placeholder="Filter by name"
+      filterName="text"
     />
-    <Field
+    <Filed
       type="text"
-      name="genres"
     />
     <button type="submit">Submit</button>
-  </Form>
+  </form>
 );
 
 
-const mapDispatchToProps = dispatch => ({
-  setFilter: filters => dispatch(changeFilters(filters)),
-});
+// const mapDispatchToProps = dispatch => ({
+//   setFilter: filters => dispatch(changeFilters(filters)),
+// });
 
 const enhances = compose(
-  connect(null, mapDispatchToProps),
-  withFormik({
-    mapPropsToValues: () => ({
-      name: '',
-      genres: '',
-    }),
-
-    // validate: (values) => {
-    //   const errors = {};
-
-    //   if (!values.name) {
-    //     errors.name = 'Required';
-    //   }
-
-    //   return errors;
-    // },
-
-    handleSubmit: (values, { props: { setFilter } }) => {
-      setFilter(values);
-    },
-
-    displayName: 'filtersForm',
-  }),
+  // connect(null, mapDispatchToProps),
 );
 
 export default enhances(FiltersForm);
