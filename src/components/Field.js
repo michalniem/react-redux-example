@@ -7,9 +7,8 @@ import { changeFilters } from '../store/filters/actionCreators';
 
 const Field = ({
   filterName,
-  type,
-  placeholder,
   setFilter,
+  renderField,
 }) => {
   const [fieldValue, setFieldValue] = useState('');
   const handleChange = ({ target: { value } }) => {
@@ -17,14 +16,7 @@ const Field = ({
     setFilter(filterName, value);
   };
 
-  return (
-    <input
-      type={type}
-      placeholder={placeholder}
-      value={fieldValue}
-      onChange={handleChange}
-    />
-  );
+  return renderField(fieldValue, handleChange);
 };
 
 Field.defaultProps = {
@@ -34,9 +26,10 @@ Field.defaultProps = {
 
 Field.propTypes = {
   filterName: PropTypes.string.isRequired,
-  type: PropTypes.string,
-  placeholder: PropTypes.string,
+  // type: PropTypes.string,
+  // placeholder: PropTypes.string,
   setFilter: PropTypes.func.isRequired,
+  renderField: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
