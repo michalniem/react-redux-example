@@ -23,11 +23,19 @@ const FiltersForm = () => (
           value={fieldValue}
           onChange={handleChange}
         >
-          <option />
+          <option value="">All</option>
+          <option value="drama">Drama</option>
+          <option value="adventure">Adventure</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="crime">Crime</option>
           <option value="thriller">Thriller</option>
+          <option value="legal">Legal</option>
+          <option value="science-fiction">Science-Fiction</option>
           <option value="comedy">Comedy</option>
+          <option value="espionage">Espionage</option>
           <option value="action">Action</option>
           <option value="horror">Horror</option>
+          <option value="western">Western</option>
         </select>
       )}
     />
