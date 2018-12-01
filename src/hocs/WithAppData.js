@@ -23,11 +23,11 @@ const WithAppData = WrappedComponent => class extends Component {
   }
 };
 
-const fetchMovies = fetchDataFactory('movies', instance.get('movies'));
+// const fetchMovies = fetchDataFactory('movies', instance.get('movies'));
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchMovies,
-}, dispatch);
+const mapDispatchToProps = dispatch => ({
+  fetchMovies: () => dispatch({ type: 'FETCH_MOVIES' }),
+});
 
 const enhances = compose(
   connect(null, mapDispatchToProps),
